@@ -1,5 +1,5 @@
 import './App.css';
-import FeedbackBoard from './FeedbackBoard/FeedbackBoard.jsx'
+import FeedbackBoard from './FeedbackBoard/FeedbackBoard'
 
 function App() {
   return (

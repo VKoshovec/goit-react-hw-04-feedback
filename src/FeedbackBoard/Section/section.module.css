@@ -1,0 +1,10 @@
+.board {
+    display: block;
+    width: 300px;
+    margin-left: 20px;
+}
+
+.title{
+    text-decoration: none;
+    text-transform: capitalize;
+} 
