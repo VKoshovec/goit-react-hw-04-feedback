@@ -9,12 +9,13 @@ const FeedbackOptions = ({
         <>
             <ul className={css.controls}>
                 { options.map((element)=>{
+                    console.log( element )
                     return (
                     <li key= { element } className={css.controlsItem}>
                         <button 
                             className={css.controlsButton}
                             name = { element } 
-                            onClick={ onLeaveFeedback }> { element }
+                            onClick={ onLeaveFeedback }>{ element }
                         </button>
                     </li>)
                 })}
