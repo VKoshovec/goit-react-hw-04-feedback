@@ -22,7 +22,8 @@ const Statistics = ({
         </>
     ) : (
         <Notification message='There is no feedback'/>
-    ));
+    )
+    );
 };
 
 Statistics.propTypes = {

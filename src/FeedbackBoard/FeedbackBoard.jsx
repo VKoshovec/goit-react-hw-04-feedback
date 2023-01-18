@@ -14,29 +14,30 @@ class FeedbackBoard extends Component {
 
     updStatistics = (e) => {
         const { name } = e.currentTarget;
-        this.setState (
-         (prevstate) => {
+        this.setState (prevstate => {
             return { [name]: prevstate[name] + 1 }
         });
     };
+
+    countTotalFeedback = () => {
+        const values = Object.values(this.state);
+        return values.reduce((acc, item)=>{ return acc + item }, 0); 
+    }
+
+    countPositiveFeedbackPercentage = () => {
+        const total = this.countTotalFeedback();
+        const good = this.state.good;
+        const value = Math.round(good/(total/100));
+        return total ? value: 0; 
+    }
 
 
     render () {
 
         const controls = Object.keys (this.state);
-
         const { good, neutral, bad } = this.state;
-
-        const countTotalFeedback = () => {
-            let values = [];
-            values = Object.values(this.state);
-            return values.reduce((acc, item)=>{ return acc + item }, 0 ); 
-        }
-
-        const countPositiveFeedbackPercentage = () => {
-            let value = Math.round(good/(countTotalFeedback()/100));
-            return countTotalFeedback() ? value: 0; 
-        }
+        const countTotalFeedback = this.countTotalFeedback();
+        const countPositiveFeedbackPercentage = this.countPositiveFeedbackPercentage();
 
         return (
             <>
@@ -52,8 +53,8 @@ class FeedbackBoard extends Component {
                        good = { good } 
                        neutral = { neutral }
                        bad = { bad }
-                       total = { countTotalFeedback() }
-                       positivePercentage = { countPositiveFeedbackPercentage() }
+                       total = { countTotalFeedback }
+                       positivePercentage = { countPositiveFeedbackPercentage }
                     />
                 </Section>
             </>
