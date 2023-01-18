@@ -9,7 +9,6 @@ const FeedbackOptions = ({
         <>
             <ul className={css.controls}>
                 { options.map((element)=>{
-                    console.log( element )
                     return (
                     <li key= { element } className={css.controlsItem}>
                         <button 
