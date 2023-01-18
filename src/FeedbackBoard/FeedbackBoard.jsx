@@ -46,6 +46,7 @@ class FeedbackBoard extends Component {
                        onLeaveFeedback= { this.updStatistics }
                    />
                 </Section>   
+                
                 <Section title={ "Statistics" }>  
                    <Statistics 
                        good = { good } 
